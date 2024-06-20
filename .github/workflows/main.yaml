@@ -15,3 +15,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build da Imagem Docker
+        uses: docker/build-push-action@v6.0.2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+             lauromazzoni/aula-pipeline-ci-cd:v${{ github.run_number }}
+             lauromazzoni/aula-pipeline-ci-cd:latest
+
