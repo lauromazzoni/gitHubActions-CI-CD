@@ -35,6 +35,11 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.K8S_CONFIG }}
+      - name: Configurando o Kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.23.6' # default is latest stable
+        id: install
       - name: Execução do Manifesto
         uses: Azure/k8s-deploy@v5
         with:
