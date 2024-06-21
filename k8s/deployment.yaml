@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: app
 spec:
   selector:
     matchLabels:
-      app: web
+      app: app
   template:
     metadata:
       labels:
-        app: web
+        app: app
     spec:
       containers:
-      - name: web
-        image: lauromazzoni/aula-pipeline-ci-cd:latest
+      - name: app
+        image: lauromazzoni/aula-pipeline-ci-cd
         ports:
         - containerPort: 3000
 --- 
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: app
 spec:
   selector:
-    app: web
+    app: app
   ports:
   - port: 80
     targetPort: 3000
