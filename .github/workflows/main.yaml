@@ -30,6 +30,11 @@ jobs:
     steps:
       - name: Obtendo o código - CD
         uses: actions/checkout@v4.1.5
+      - name: Configurando o Kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.23.6' # default is latest stable
+        id: install
       - name: Configração do contexto do Kubernetes
         uses: azure/k8s-set-context@v4.0.0
         with:
