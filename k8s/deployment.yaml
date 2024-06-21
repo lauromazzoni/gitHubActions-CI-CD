@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: lauromazzoni/aula-pipeline-ci-cd
+        image: lauromazzoni/aula-pipeline-ci-cd:latest
         ports:
         - containerPort: 3000
 --- 
