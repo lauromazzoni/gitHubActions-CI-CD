@@ -38,7 +38,7 @@ jobs:
       - name: Configurando o Kubectl
         uses: azure/setup-kubectl@v3
         with:
-           version: 1.23.6 # default is latest stable
+           version: "1.23.6" # default is latest stable
         id: install
       - name: Execução do Manifesto
         uses: Azure/k8s-deploy@v5
