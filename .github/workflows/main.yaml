@@ -47,3 +47,6 @@ jobs:
             ./k8s/deployment.yaml
           images: |
             lauromazzoni/aula-pipeline-ci-cd:v${{ github.run_number }}
+          imagepullsecrets: |
+            ${{ secrets.DOCKERHUB_USERNAME }}
+            ${{ secrets.DOCKERHUB_TOKEN }}
