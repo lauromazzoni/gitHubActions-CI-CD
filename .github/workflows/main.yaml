@@ -40,6 +40,14 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.K8S_CONFIG }}
+      - name: Set imagePullSecret
+        uses: azure/k8s-create-secret@v4
+        with:
+            secret-name: 'contoso-cr'
+            container-registry-url: 'https://hub.docker.com/'
+            container-registry-username: ${{ secrets.DOCKERHUB_USERNAME }}
+            container-registry-password: ${{ secrets.DOCKERHUB_TOKEN }}
+        id: create-secret
       - name: Execução do Manifesto
         uses: Azure/k8s-deploy@v5
         with:
